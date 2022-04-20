@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{DCA66196-2C8F-99FF-1395-A425EB250076}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/playerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/testDialouge.cs">
     <Files>
-      <File FileName="Assets/Scripts/playerController.cs" Line="19" Column="8" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="46" Column="10" />
+      <File FileName="Assets/Scripts/interaction.cs" Line="9" Column="21" />
+      <File FileName="Assets/Scripts/Interactable.cs" Line="13" Column="9" />
+      <File FileName="Assets/Scripts/testDialouge.cs" Line="10" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -9,11 +12,14 @@
           <Node name="Asteria" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="playerController.cs" selected="True" />
+                <Node name="testDialouge.cs" selected="True" />
               </Node>
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/playerController.cs" />
+    <Compile Include="Assets/Scripts/camFollowPlayer.cs" />
+    <Compile Include="Assets/Scripts/worldInteraction.cs" />
+    <Compile Include="Assets/Scripts/Interactable.cs" />
+    <Compile Include="Assets/Scripts/testDialouge.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
