@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -8,11 +6,17 @@ public class playerController : MonoBehaviour
 
     public Vector2 velocity;
 
-    public float horizontal;
-    public float vertical;
+    private float horizontal;
+    private float vertical;
     public float speed;
     private Animator walkAnim;
- 
+
+    [SerializeField] private dialogueManager DialogueManager;
+
+    public dialogueManager dialogueManager => DialogueManager;
+
+    public Interactable Interactable { get; set; }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +28,20 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (dialogueManager.isShown)
+        {
+            horizontal = 0;
+            vertical = 0;
+            return;
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetButton("Submit"))
+        {
+            Interactable?.Interact(this);
+        }
     }
 
     void FixedUpdate()
