@@ -11,13 +11,14 @@ public class playerController : MonoBehaviour
     public float horizontal;
     public float vertical;
     public float speed;
+    private Animator walkAnim;
  
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-       
+        walkAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,18 @@ public class playerController : MonoBehaviour
         velocity = new Vector2(horizontal, vertical);
         rb.AddForce(speed * Time.deltaTime * Vector2.ClampMagnitude(velocity,1));
 
-        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (Vector3)rb.velocity);
+        //animation stuff
+        if (velocity != Vector2.zero)
+        {
+            walkAnim.SetFloat("horizontal", velocity.x);
+            walkAnim.SetFloat("vertical", velocity.y);
+            walkAnim.SetBool("isWalking", true);
+        }
+        else
+        {
+            walkAnim.SetBool("isWalking", false);
+        }
 
+        Debug.DrawLine(gameObject.transform.position, gameObject.transform.position + (Vector3)rb.velocity);
     }
 }
