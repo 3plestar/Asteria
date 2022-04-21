@@ -28,17 +28,14 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dialogueManager.isShown)
-        {
-            horizontal = 0;
-            vertical = 0;
-            return;
-        }
+       
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButton("Submit"))
+        if (dialogueManager.isShown) return;
+
+        if (Input.GetButton("Submit") && dialogueManager.isShown == false)
         {
             Interactable?.Interact(this);
         }
@@ -46,6 +43,12 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dialogueManager.isShown)
+        {
+            walkAnim.SetBool("isWalking", false);
+            return;
+        }
+
         velocity = new Vector2(horizontal, vertical);
         rb.AddForce(speed * Time.deltaTime * Vector2.ClampMagnitude(velocity,1));
 

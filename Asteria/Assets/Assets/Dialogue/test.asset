@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   dialogue:
-  - The battery is dusty...
+  - This battery is dusty...
   - Pick up the dusty battery?

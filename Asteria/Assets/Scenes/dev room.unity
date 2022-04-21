@@ -777,7 +777,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062162840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40e5b12ca10e40968730de839f7815d, type: 3}
+  m_Script: {fileID: 11500000, guid: bbb2aadc9cfae468e8e82d25307a2767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueData: {fileID: 11400000, guid: 661d1a239be6743d3a10e76e162c333e, type: 2}
@@ -811,7 +811,6 @@ GameObject:
   - component: {fileID: 1642605671}
   - component: {fileID: 1642605666}
   - component: {fileID: 1642605667}
-  - component: {fileID: 1642605670}
   - component: {fileID: 1642605669}
   m_Layer: 0
   m_Name: player
@@ -956,19 +955,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1642605670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642605663}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2bdd271a09674c99a556f39f3af987e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractIcon: {fileID: 0}
 --- !u!61 &1642605671
 BoxCollider2D:
   m_ObjectHideFlags: 0

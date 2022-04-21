@@ -19,14 +19,13 @@ public class dialogueManager : MonoBehaviour
 
     public void ShowDialogue(DialogueData dialogueData)
     {
-        isShown = true;
-        dialogueBox.SetActive(true);
-        StartCoroutine(NextDialogue(dialogueData));
+            isShown = true;
+            dialogueBox.SetActive(true);
+            StartCoroutine(NextDialogue(dialogueData));
     }
 
     private IEnumerator NextDialogue(DialogueData dialogueData)
     {
-        
         textLabel.text = string.Empty;
         foreach (string dialogue in dialogueData.Dialogue)
         {
