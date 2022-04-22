@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50744132770a4d5b9e82f6776b1af91, type: 3}
+  m_Name: test
+  m_EditorClassIdentifier: 
+  dialogue:
+  - This battery is dusty...
+  - Pick up the dusty battery?
+  responses:
+  - responseText: yes
+    dialogueData: {fileID: 11400000, guid: ce840b2c294d04856a7b75079ab86210, type: 2}
+  - responseText: no
+    dialogueData: {fileID: 11400000, guid: 97c9dd09fda6e4eff9d960ffcf5453ae, type: 2}

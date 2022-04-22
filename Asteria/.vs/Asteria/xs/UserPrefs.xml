@@ -1,11 +1,13 @@
 ﻿<Properties StartupConfiguration="{DCA66196-2C8F-99FF-1395-A425EB250076}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TriggerDialogue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/responseManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Interactable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/dialogueManager.cs" Line="11" Column="46" />
-      <File FileName="Assets/Scripts/DialogueData.cs" Line="10" Column="42" />
-      <File FileName="Assets/Scripts/playerController.cs" Line="38" Column="65" />
-      <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="22" Column="82" />
+      <File FileName="Assets/Scripts/Interactable.cs" Line="1" Column="20" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="39" Column="10" />
+      <File FileName="Assets/Scripts/dialogueManager.cs" Line="32" Column="31" />
+      <File FileName="Assets/Scripts/DialogueData.cs" Line="16" Column="77" />
+      <File FileName="Assets/Scripts/TextOptions.cs" Line="3" Column="22" />
+      <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="5" Column="49" />
+      <File FileName="Assets/Scripts/responseManager.cs" Line="10" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,20 +15,17 @@
           <Node name="Asteria" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="TriggerDialogue.cs" selected="True" />
+                <Node name="responseManager.cs" selected="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="d50de31f-4439-415b-b4a1-0b722e68bab3" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="68ed5a51-dc76-4ccd-b373-533ea542fc4f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

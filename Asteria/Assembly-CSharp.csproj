@@ -57,11 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Scripts/playerController.cs" />
+    <Compile Include="Assets/Scripts/TextOptions.cs" />
     <Compile Include="Assets/Scripts/camFollowPlayer.cs" />
     <Compile Include="Assets/Scripts/Interactable.cs" />
+    <Compile Include="Assets/Scripts/TriggerDialogue.cs" />
+    <Compile Include="Assets/Scripts/responseManager.cs" />
     <Compile Include="Assets/Scripts/dialogueManager.cs" />
     <Compile Include="Assets/Scripts/DialogueData.cs" />
-    <Compile Include="Assets/Scripts/TriggerDialogue.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
