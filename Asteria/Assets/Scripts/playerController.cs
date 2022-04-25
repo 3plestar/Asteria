@@ -28,12 +28,8 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
-        if (dialogueManager.isShown) return;
 
         if (Input.GetButton("Submit") && dialogueManager.isShown == false)
         {
@@ -43,7 +39,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogueManager.isShown)
+        if (dialogueManager.haltWalk)
         {
             walkAnim.SetBool("isWalking", false);
             return;

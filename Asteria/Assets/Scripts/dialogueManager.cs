@@ -11,12 +11,13 @@ public class dialogueManager : MonoBehaviour
     private responseManager ResponseManager;
 
     public bool isShown { get; private set; }
+    public bool haltWalk { get; private set; }
     public float textSpeed;
 
     private void Start()
     {
         ResponseManager = GetComponent<responseManager>();
-        hideDialogueBox();
+        StartCoroutine(hideDialogueBox());
     }
 
     public void ShowDialogue(DialogueData dialogueData)
@@ -24,12 +25,13 @@ public class dialogueManager : MonoBehaviour
         if (dialogueData != null)
         {
             isShown = true;
+            haltWalk = true;
             dialogueBox.SetActive(true);
             StartCoroutine(NextDialogue(dialogueData));
         }
         else
         {
-            hideDialogueBox();
+            StartCoroutine(hideDialogueBox());
         }
        
     }
@@ -54,7 +56,7 @@ public class dialogueManager : MonoBehaviour
         }
         else
         {
-            hideDialogueBox();
+            StartCoroutine(hideDialogueBox());
         }
         
     }
@@ -77,10 +79,13 @@ public class dialogueManager : MonoBehaviour
 
     }
 
-    private void hideDialogueBox()
+    private IEnumerator hideDialogueBox()
     {
-        isShown = false;
+        Time.timeScale = 1;
+        haltWalk = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        yield return new WaitForSeconds(1.0f);
+        isShown = false;
     }
 }

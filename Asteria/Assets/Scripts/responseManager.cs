@@ -47,7 +47,5 @@ public class responseManager : MonoBehaviour
         tempButtons.Clear();
         
         DialogueManager.ShowDialogue(option.DialogueData);
-        
-        
     }
 } 
