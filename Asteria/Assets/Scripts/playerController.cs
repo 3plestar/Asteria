@@ -39,7 +39,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogueManager.haltWalk)
+        if (dialogueManager.haltMovement)
         {
             walkAnim.SetBool("isWalking", false);
             return;
