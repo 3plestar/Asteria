@@ -31,7 +31,7 @@ public class playerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetButton("Submit") && dialogueManager.isShown == false)
+        if (Input.GetButtonDown("Submit") && dialogueManager.isShown == false)
         {
             Interactable?.Interact(this);
         }
@@ -39,7 +39,7 @@ public class playerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (dialogueManager.haltMovement)
+        if (dialogueManager.isShown)
         {
             walkAnim.SetBool("isWalking", false);
             return;

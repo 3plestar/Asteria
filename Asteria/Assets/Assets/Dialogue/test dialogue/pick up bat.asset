@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: pick up bat
   m_EditorClassIdentifier: 
   dialogue:
-  - The developer didn't program that yet
+  - 'The developer didn''t program the inventory yet.
+
+    The battery dissapears
+    into the void...'
   responses:
   - responseText: wow, ok then
     dialogueData: {fileID: 0}

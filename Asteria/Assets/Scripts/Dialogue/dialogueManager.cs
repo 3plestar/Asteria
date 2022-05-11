@@ -11,7 +11,6 @@ public class dialogueManager : MonoBehaviour
     private responseManager ResponseManager;
 
     public bool isShown { get; private set; }
-    public bool haltMovement { get; private set; }
     public bool isRunning { get; private set; }
     public float textSpeed;
 
@@ -35,7 +34,6 @@ public class dialogueManager : MonoBehaviour
         if (dialogueData != null)
         {
             isShown = true;
-            haltMovement = true;
             dialogueBox.SetActive(true);
             StartCoroutine(NextDialogue(dialogueData));
         }
@@ -63,7 +61,7 @@ public class dialogueManager : MonoBehaviour
             if (i == dialogueData.Dialogue.Length - 1 && dialogueData.hasOptions) break;
 
             yield return null;
-            yield return new WaitUntil(() => Input.GetButton("Submit"));
+            yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
         }
 
         if (dialogueData.hasOptions)
@@ -83,7 +81,7 @@ public class dialogueManager : MonoBehaviour
         while (isRunning)
         {
             yield return null;
-            if (Input.GetButton("Cancel"))
+            if (Input.GetButtonDown("Cancel")||Input.GetButtonDown("Submit"))
             {
                 Stop();
             }
@@ -147,11 +145,9 @@ public class dialogueManager : MonoBehaviour
 
     public IEnumerator hideDialogueBox()
     {
-        Time.timeScale = 1;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
-        haltMovement = false;
-        yield return new WaitForSeconds(1.0f);
+        yield return null;
         isShown = false;
     }
 
