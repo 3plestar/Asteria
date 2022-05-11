@@ -16,7 +16,7 @@ MonoBehaviour:
   - 'empty.
 
     empty, empty.'
-  - 'existence is pain...
-
-    help... me...'
-  responses: []
+  - existence is pain...
+  responses:
+  - responseText: F
+    dialogueData: {fileID: 0}
