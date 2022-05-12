@@ -1,17 +1,19 @@
 ﻿<Properties StartupConfiguration="{DCA66196-2C8F-99FF-1395-A425EB250076}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OptionEventEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Spawner.cs">
     <Files>
-      <File FileName="Assets/Scripts/DialogueData.cs" Line="12" Column="6" />
-      <File FileName="Assets/Scripts/TextOptions.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="11" Column="15" />
+      <File FileName="Assets/Scripts/DialogueData.cs" Line="12" Column="42" />
+      <File FileName="Assets/Scripts/TextOptions.cs" Line="12" Column="5" />
+      <File FileName="Assets/Scripts/TriggerDialogue.cs" Line="11" Column="9" />
       <File FileName="Assets/Scripts/responseManager.cs" Line="66" Column="59" />
       <File FileName="Assets/Scripts/OptionEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DialogueOptionEvents.cs" Line="11" Column="42" />
-      <File FileName="Assets/Scripts/dialogueManager.cs" Line="147" Column="11" />
-      <File FileName="Assets/Scripts/camFollowPlayer.cs" />
-      <File FileName="Assets/Scripts/playerController.cs" Line="35" Column="10" />
+      <File FileName="Assets/Scripts/DialogueOptionEvents.cs" Line="11" Column="5" />
+      <File FileName="Assets/Scripts/dialogueManager.cs" Line="54" Column="9" />
+      <File FileName="Assets/Scripts/camFollowPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="42" Column="36" />
       <File FileName="Assets/Scripts/Interactable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/OptionEventEditor.cs" Line="4" Column="18" />
+      <File FileName="Assets/Scripts/OptionEventEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Spawner.cs" Line="14" Column="50" />
+      <File FileName="Assets/Scripts/SpawnerData.cs" Line="11" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +21,8 @@
           <Node name="Asteria" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="OptionEventEditor.cs" selected="True" />
+                <Node name="Dialogue" expanded="True" />
+                <Node name="Spawner.cs" selected="True" />
               </Node>
             </Node>
           </Node>

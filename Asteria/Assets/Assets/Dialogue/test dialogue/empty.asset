@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: empty
   m_EditorClassIdentifier: 
   dialogue:
-  - 'empty.
-
-    empty, empty.'
+  - empty
   - existence is pain...
   responses:
   - responseText: F

@@ -60,7 +60,6 @@ public class dialogueManager : MonoBehaviour
 
             if (i == dialogueData.Dialogue.Length - 1 && dialogueData.hasOptions) break;
 
-            yield return null;
             yield return new WaitUntil(() => Input.GetButtonDown("Submit"));
         }
 
