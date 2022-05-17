@@ -3,6 +3,7 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    Targeting targeting;
 
     public Vector2 velocity;
 
@@ -12,6 +13,7 @@ public class playerController : MonoBehaviour
     private Animator walkAnim;
 
     [SerializeField] private dialogueManager DialogueManager;
+    
 
     public dialogueManager dialogueManager => DialogueManager;
 
@@ -23,6 +25,7 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         walkAnim = GetComponent<Animator>();
+        targeting = GetComponent<Targeting>();
     }
 
     // Update is called once per frame
@@ -31,9 +34,20 @@ public class playerController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
+        //interaction with interactable
         if (Input.GetButtonDown("Submit") && dialogueManager.isShown == false)
         {
-            Interactable?.Interact(this);
+            if (Interactable != null)
+            {
+                Interactable.Interact(this);
+                targeting.Untarget();
+            }
+        }
+
+        //target closest targetable object
+        if (Input.GetKeyDown("left shift"))
+        {
+            targeting.TargetObject();
         }
     }
 
@@ -51,9 +65,13 @@ public class playerController : MonoBehaviour
         //animation stuff
         if (velocity != Vector2.zero)
         {
+            walkAnim.SetBool("isWalking", true);
+            if (targeting.currentTarget != null)
+            {
+                return;
+            }
             walkAnim.SetFloat("horizontal", velocity.x);
             walkAnim.SetFloat("vertical", velocity.y);
-            walkAnim.SetBool("isWalking", true);
         }
         else
         {

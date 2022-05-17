@@ -69,8 +69,9 @@
     <Compile Include="Assets/Scripts/Dialogue/DialogueOptionEvents.cs" />
     <Compile Include="Assets/Scripts/Spawner.cs" />
     <Compile Include="Assets/Scripts/SpawnerData.cs" />
-    <Compile Include="Assets/Scripts/EnemyStats.cs" />
-    <Compile Include="Assets/Scripts/meleeHitbox.cs" />
+    <Compile Include="Assets/Scripts/combat/EnemyStats.cs" />
+    <Compile Include="Assets/Scripts/combat/meleeHitbox.cs" />
+    <Compile Include="Assets/Scripts/combat/Targeting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
