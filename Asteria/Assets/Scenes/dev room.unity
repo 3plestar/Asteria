@@ -785,6 +785,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1642605665}
   cameraOffset: {x: 0, y: 5, z: -10}
+  finalPosition: {x: 0, y: 0, z: 0}
+  zoom: 31
   cameraSpeed: 0.1
 --- !u!20 &519420031
 Camera:
@@ -2210,8 +2212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reticle: {fileID: 952259723}
-  Offset: {x: 0, y: 0, z: 0}
-  TargetRadius: 50
+  Offset: {x: 0, y: 20, z: 0}
+  TargetRadius: 60
   currentTarget: {fileID: 0}
   isInRadius: 0
 --- !u!61 &1642605671

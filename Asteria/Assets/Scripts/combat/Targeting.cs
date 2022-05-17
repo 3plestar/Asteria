@@ -12,6 +12,9 @@ public class Targeting : MonoBehaviour
 
     public Transform currentTarget;
 
+    public List<GameObject> possibleTargets;
+    int nextTarget;
+
     private Animator walkAnim;
     private Collider2D[] hitColliders;
     public bool isInRadius;
@@ -23,14 +26,29 @@ public class Targeting : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            cycleTarget();
+            
+        }
         FocusTarget(currentTarget);  
     }
 
     void FixedUpdate()
-    {  
+    {
         if (currentTarget)
         {
             hitColliders = Physics2D.OverlapCircleAll(transform.position, TargetRadius);
+            possibleTargets = new List<GameObject>();
+            for (int i = 0; i < hitColliders.Length; i++)
+            {
+                Collider2D potentialTarget = hitColliders[i];
+
+                if (potentialTarget.CompareTag("Enemy"))
+                {
+                    possibleTargets.Add(potentialTarget.gameObject);
+                }
+            }
         }
     }
     
@@ -109,6 +127,20 @@ public class Targeting : MonoBehaviour
             {
                 Untarget();
             }
+        }
+    }
+
+    public void cycleTarget()
+    {
+        if (possibleTargets.ToArray().Length != 0 && currentTarget)
+        {
+            nextTarget++;
+            if (nextTarget >= possibleTargets.ToArray().Length)
+            {
+                nextTarget = 0;
+            }
+
+            currentTarget = possibleTargets[nextTarget].transform;
         }
     }
 
