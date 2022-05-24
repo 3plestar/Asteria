@@ -56,22 +56,23 @@
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/NoButtonUnfocussing.cs" />
     <Compile Include="Assets/Scripts/playerController.cs" />
+    <Compile Include="Assets/Scripts/combat/EnemyStats.cs" />
+    <Compile Include="Assets/Scripts/Spawner.cs" />
     <Compile Include="Assets/Scripts/Dialogue/TextOptions.cs" />
+    <Compile Include="Assets/Scripts/combat/meleeHitbox.cs" />
     <Compile Include="Assets/Scripts/camFollowPlayer.cs" />
     <Compile Include="Assets/Scripts/Dialogue/OptionEvent.cs" />
     <Compile Include="Assets/Scripts/Interactable.cs" />
     <Compile Include="Assets/Scripts/Dialogue/TriggerDialogue.cs" />
     <Compile Include="Assets/Scripts/OptionEventEditor.cs" />
+    <Compile Include="Assets/Scripts/combat/Targeting.cs" />
     <Compile Include="Assets/Scripts/Dialogue/responseManager.cs" />
     <Compile Include="Assets/Scripts/Dialogue/dialogueManager.cs" />
+    <Compile Include="Assets/Scripts/SpawnerData.cs" />
     <Compile Include="Assets/Scripts/Dialogue/DialogueData.cs" />
     <Compile Include="Assets/Scripts/Dialogue/DialogueOptionEvents.cs" />
-    <Compile Include="Assets/Scripts/Spawner.cs" />
-    <Compile Include="Assets/Scripts/SpawnerData.cs" />
-    <Compile Include="Assets/Scripts/combat/EnemyStats.cs" />
-    <Compile Include="Assets/Scripts/combat/meleeHitbox.cs" />
-    <Compile Include="Assets/Scripts/combat/Targeting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

@@ -11,6 +11,8 @@ public class playerController : MonoBehaviour
     private float vertical;
     public float speed;
     private Animator walkAnim;
+    public Animator attackAnim;
+    public GameObject weapon;
 
     [SerializeField] private dialogueManager DialogueManager;
     
@@ -44,10 +46,28 @@ public class playerController : MonoBehaviour
             }
         }
 
-        //target closest targetable object
-        if (Input.GetKeyDown("left shift"))
+        //target closest targetable object and cycle through
+        if (Input.GetButtonDown("Target"))
         {
             targeting.TargetObject();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            targeting.cycleTarget(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            targeting.cycleTarget(-1);
+        }
+
+
+        if (Input.GetButtonDown("Attack"))
+        {
+            weapon.SetActive(true);
+            attackAnim.Play("attack");
+            
         }
     }
 

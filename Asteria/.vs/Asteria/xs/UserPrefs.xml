@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{DCA66196-2C8F-99FF-1395-A425EB250076}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Dialogue/TriggerDialogue.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/combat/EnemyStats.cs">
     <Files>
-      <File FileName="Assets/Scripts/meleeHitbox.cs" Line="11" Column="32" />
-      <File FileName="Assets/Scripts/playerController.cs" Line="2" Column="1" />
-      <File FileName="Assets/Scripts/combat/Targeting.cs" Line="48" Column="24" />
-      <File FileName="Assets/Scripts/Dialogue/dialogueManager.cs" Line="12" Column="5" />
-      <File FileName="Assets/Scripts/camFollowPlayer.cs" Line="5" Column="29" />
-      <File FileName="Assets/Scripts/Interactable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Dialogue/TriggerDialogue.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/playerController.cs" Line="67" Column="20" />
+      <File FileName="Assets/Scripts/combat/Targeting.cs" />
+      <File FileName="Assets/Scripts/Dialogue/dialogueManager.cs" />
+      <File FileName="Assets/Scripts/camFollowPlayer.cs" />
+      <File FileName="Assets/Scripts/Interactable.cs" />
+      <File FileName="Assets/Scripts/NoButtonUnfocussing.cs" />
+      <File FileName="Assets/Scripts/Dialogue/responseManager.cs" />
+      <File FileName="Assets/Scripts/combat/meleeHitbox.cs" Line="7" Column="31" />
+      <File FileName="Assets/Scripts/combat/EnemyStats.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -15,10 +17,10 @@
           <Node name="Asteria" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="combat" expanded="True" />
-                <Node name="Dialogue" expanded="True">
-                  <Node name="TriggerDialogue.cs" selected="True" />
+                <Node name="combat" expanded="True">
+                  <Node name="EnemyStats.cs" selected="True" />
                 </Node>
+                <Node name="Dialogue" expanded="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="300f6c8a-c06f-4d59-b775-42c06f2bc43a" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8d0390cc-3987-44f8-807f-259ca3ebd694" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -40,7 +40,7 @@ public class responseManager : MonoBehaviour
             tempButtons.Add(optionButton);
         }
         var eventSystem = EventSystem.current;
-        eventSystem.SetSelectedGameObject(OptionsContainer.GetChild(1).gameObject, new BaseEventData(eventSystem));
+        eventSystem.SetSelectedGameObject(OptionsContainer.GetChild(0).gameObject, new BaseEventData(eventSystem));
 
         OptionsContainer.gameObject.SetActive(true);
     }
