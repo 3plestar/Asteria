@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3789698286877032294}
   - component: {fileID: -8114515284326835952}
+  - component: {fileID: 289190398758981491}
   - component: {fileID: 6823093403756141894}
   - component: {fileID: 8029166701622309833}
+  - component: {fileID: 7154007461208943544}
   m_Layer: 0
   m_Name: test enemy
   m_TagString: Enemy
@@ -84,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!50 &289190398758981491
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486892122476132336}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 20
+  m_LinearDrag: 20
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!70 &6823093403756141894
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -97,8 +120,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07694928, y: 1.2773925}
-  m_Size: {x: 10.1613245, y: 7.3163958}
+  m_Offset: {x: 0, y: 1.3}
+  m_Size: {x: 10.2, y: 7.3}
   m_Direction: 1
 --- !u!114 &8029166701622309833
 MonoBehaviour:
@@ -114,3 +137,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 5
+  takenKnockback: 2000
+--- !u!61 &7154007461208943544
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8486892122476132336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 6.1033335}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 8.520536, y: 12.206667}
+    newSize: {x: 8.520536, y: 12.206667}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.520536, y: 12.206667}
+  m_EdgeRadius: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class playerController : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -62,12 +63,10 @@ public class playerController : MonoBehaviour
             targeting.cycleTarget(-1);
         }
 
-
+        //attack
         if (Input.GetButtonDown("Attack"))
         {
-            weapon.SetActive(true);
             attackAnim.Play("attack");
-            
         }
     }
 

@@ -6,14 +6,20 @@ public class EnemyStats : MonoBehaviour
 {
     public float health;
     public float maxHealth;
+    public float takenKnockback;
+
+    private Rigidbody2D rb;
 
     void Start()
     {
         health = maxHealth;
+        rb = transform.GetComponent<Rigidbody2D>();
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(float damage,Vector2 knockbackDirection)
     {
+        rb.AddForce(takenKnockback * Vector2.ClampMagnitude(knockbackDirection,1),ForceMode2D.Impulse);
+
         health -= damage;
         if (health <= 0)
         {
