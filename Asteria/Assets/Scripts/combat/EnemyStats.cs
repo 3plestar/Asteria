@@ -18,6 +18,7 @@ public class EnemyStats : MonoBehaviour
 
     public void takeDamage(float damage,Vector2 knockbackDirection)
     {
+        //damage for knockback scaling
         rb.AddForce(takenKnockback * Vector2.ClampMagnitude(knockbackDirection,1),ForceMode2D.Impulse);
 
         health -= damage;

@@ -118,14 +118,14 @@ public class Targeting : MonoBehaviour
         }
 
         //first get the current target
-        for (int i=0; i < amountOfTargets; i++)
+        for (int i=0; i <= amountOfTargets; i++)
         {
             if(possibleTargets[i].transform == currentTarget)
             {
                 nextTarget = i;
             }
         }
-
+        
         //then cycle to direction
         nextTarget += direcion;
 
