@@ -12,8 +12,8 @@ public class camFollowPlayer : MonoBehaviour
     public float cameraSpeed = 0.1f;
 
     private Targeting targeting;
-
-    // Start is called before the first frame update
+    
+    //Code in dit script is zeer duidelijk. Wel opletten dat Scriptnamen met een hoofdletter beginnen.
     void Start()
     {
         targeting = player.GetComponent<Targeting>();
@@ -32,6 +32,7 @@ public class camFollowPlayer : MonoBehaviour
         {
             finalPosition = (targeting.currentTarget.position - player.position)/2 + player.position + cameraOffset;
         }
+        //Je kan hier ook gebruik maken van Time.deltaTime dit zal een smoother effect hebben bij een on regelmatige framerate.
         Vector3 lerpPosition = Vector3.Lerp(transform.position, finalPosition, cameraSpeed);
         transform.position = lerpPosition;
         
