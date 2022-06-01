@@ -28,7 +28,7 @@ public class playerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         walkAnim = GetComponent<Animator>();
-        targeting = GetComponent<Targeting>();
+        targeting = GetComponentInChildren<Targeting>();
     }
 
     // Update is called once per frame

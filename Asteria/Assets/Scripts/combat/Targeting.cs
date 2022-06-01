@@ -6,43 +6,48 @@ public class Targeting : MonoBehaviour
 {
     public GameObject reticle;
     public Vector3 Offset;
-    public float TargetRadius;
 
-    private Vector3 currentPosition;
     public Transform currentTarget;
-
-    private List<GameObject> possibleTargets;
     private int nextTarget;
 
+    [SerializeField] private List<GameObject> possibleTargets;
+
     private Animator walkAnim;
-    public Collider2D[] hitColliders;
-    public bool isInRadius;
 
     private void Start()
     {
-        walkAnim = GetComponent<Animator>();
+        walkAnim = GetComponentInParent<Animator>();
     }
 
     void Update()
-    { 
-        FocusTarget(currentTarget);  
+    {
+        FocusTarget(currentTarget);
     }
 
-    void FixedUpdate()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (currentTarget)
+        if (other.CompareTag("Enemy"))
         {
-            hitColliders = Physics2D.OverlapCircleAll(transform.position, TargetRadius);
+            possibleTargets.Add(other.gameObject);
         }
     }
-    
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            if (other.transform == currentTarget)
+            {
+                Untarget();
+            }
+            possibleTargets.Remove(other.gameObject);
+        }
+    }
 
     public void TargetObject()
     {
         if (!currentTarget)
         {
-            hitColliders = Physics2D.OverlapCircleAll(transform.position, TargetRadius);
-            currentPosition = transform.position;
             currentTarget = GetClosestObject();
             return;
         }
@@ -55,11 +60,9 @@ public class Targeting : MonoBehaviour
 
         float closestDistanceSqr = Mathf.Infinity;
 
-        GameObject[] possibleTargets = GetPossibleTargets();
-
-        foreach (GameObject potentialTarget in possibleTargets)
+        foreach (GameObject potentialTarget in possibleTargets.ToArray())
         {
-            Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
+            Vector3 directionToTarget = potentialTarget.transform.position - transform.position;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
             if (dSqrToTarget < closestDistanceSqr)
             {
@@ -72,7 +75,6 @@ public class Targeting : MonoBehaviour
         {
             return closestTarget;
         }
-        Untarget();
         return null;
     }
 
@@ -82,97 +84,51 @@ public class Targeting : MonoBehaviour
 
         if (target)
         {
-            currentPosition = transform.position;
             reticle.transform.position = Camera.main.WorldToScreenPoint(target.position + Offset);
-            
-            Vector3 directionToTarget = target.position - currentPosition;
+
+            Vector3 directionToTarget = target.position - transform.position;
             walkAnim.SetFloat("horizontal", directionToTarget.x);
             walkAnim.SetFloat("vertical", directionToTarget.y);
-
-            foreach (Collider2D col in hitColliders)
-            {
-                if (col.transform && col.transform == target)
-                {
-                    isInRadius = true;
-                    break;
-                }
-                else
-                {
-                    isInRadius = false;
-                }
-            }
-            if (!isInRadius)
-            {
-                Untarget();
-            }
         }
     }
 
     public void cycleTarget(int direcion)
     {
-        GameObject[] possibleTargets = GetPossibleTargets();
-        int amountOfTargets = possibleTargets.Length - 1;
-        if (amountOfTargets == 0 || !currentTarget)
+        int amountOfTargets = possibleTargets.ToArray().Length;
+
+        if (amountOfTargets == 1 || !currentTarget)
         {
             return;
         }
 
         //first get the current target
-        for (int i=0; i <= amountOfTargets; i++)
+        for (int i = 0; i < amountOfTargets; i++)
         {
-            if(possibleTargets[i].transform == currentTarget)
+            if (possibleTargets[i].transform == currentTarget)
             {
                 nextTarget = i;
             }
         }
-        
+
         //then cycle to direction
         nextTarget += direcion;
 
-        if (nextTarget > amountOfTargets)
+        if (nextTarget >= amountOfTargets)
         {
             nextTarget = 0;
         }
 
         if (nextTarget < 0)
         {
-            nextTarget = amountOfTargets;
+            nextTarget = amountOfTargets - 1;
         }
 
         currentTarget = possibleTargets[nextTarget].transform;
     }
 
-    private GameObject[] GetPossibleTargets()
-    {
-        possibleTargets = new List<GameObject>();
-        foreach (Collider2D potentialTarget in hitColliders)
-        {
-            if (potentialTarget.CompareTag("Enemy"))
-            {
-                possibleTargets.Add(potentialTarget.gameObject);
-            }
-        }
-        return possibleTargets.ToArray();
-    }
-
     public void Untarget()
     {
-        isInRadius = false;
-        if(hitColliders!=null)
-            hitColliders = null;
-
         if (currentTarget)
             currentTarget = null;
-        
-        if (possibleTargets!=null)
-            possibleTargets.Clear();
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-       
-        Gizmos.DrawWireSphere(transform.position, TargetRadius);
     }
 }
-

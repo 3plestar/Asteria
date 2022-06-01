@@ -32,10 +32,10 @@ public class camFollowPlayer : MonoBehaviour
         {
             finalPosition = (targeting.currentTarget.position - player.position)/2 + player.position + cameraOffset;
         }
-        Vector3 lerpPosition = Vector3.Lerp(transform.position, finalPosition, cameraSpeed);
+        Vector3 lerpPosition = Vector3.Lerp(transform.position, finalPosition, cameraSpeed * Time.deltaTime);
         transform.position = lerpPosition;
         
-        lerpZoom = Mathf.Lerp(lerpZoom, zoom, cameraSpeed);
+        lerpZoom = Mathf.Lerp(lerpZoom, zoom, cameraSpeed * Time.deltaTime);
         Camera.main.orthographicSize = lerpZoom;
     }
 }

@@ -162,7 +162,7 @@ namespace UnityEngine.EventSystems
             }
 
             m_SelectionGuard = true;
-            if (selected == m_CurrentSelected || selected == null)
+            if (selected == m_CurrentSelected)
             {
                 m_SelectionGuard = false;
                 return;
