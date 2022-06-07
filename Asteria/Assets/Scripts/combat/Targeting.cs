@@ -9,6 +9,7 @@ public class Targeting : MonoBehaviour
 
     public Transform currentTarget;
     private int nextTarget;
+    private int nextExtreme;
 
     [SerializeField] private List<GameObject> possibleTargets;
 
@@ -92,10 +93,11 @@ public class Targeting : MonoBehaviour
         }
     }
 
-    public void cycleTarget(int direcion)
+    public void cycleTarget(int direction)
     {
         int amountOfTargets = possibleTargets.ToArray().Length;
-
+       
+        
         if (amountOfTargets == 1 || !currentTarget)
         {
             return;
@@ -111,19 +113,54 @@ public class Targeting : MonoBehaviour
         }
 
         //then cycle to direction
-        nextTarget += direcion;
+        float nextTargetX = Mathf.Infinity;
+        float possibleTargetX;
 
-        if (nextTarget >= amountOfTargets)
+        for (int i = 0; i < amountOfTargets; i++)
         {
-            nextTarget = 0;
+            possibleTargetX = possibleTargets[i].transform.position.x * direction;
+            if (possibleTargetX < nextTargetX && possibleTargetX > currentTarget.position.x * direction)
+            {
+                nextTargetX = possibleTargetX;
+
+                nextTarget = i;
+            }
+        }
+        
+        if(currentTarget != possibleTargets[nextTarget].transform)
+        {
+            currentTarget = possibleTargets[nextTarget].transform;
+        }
+        else
+        {
+            float extremeTargetX = Mathf.Infinity;
+            for (int i = 0; i < amountOfTargets; i++)
+            {
+                possibleTargetX = possibleTargets[i].transform.position.x * direction;
+                if (possibleTargetX < extremeTargetX)
+                {
+                    extremeTargetX = possibleTargetX;
+                    nextExtreme = i;
+                }
+            }
+            currentTarget = possibleTargets[nextExtreme].transform;
         }
 
-        if (nextTarget < 0)
-        {
-            nextTarget = amountOfTargets - 1;
-        }
 
-        currentTarget = possibleTargets[nextTarget].transform;
+
+        //nextTarget += direction;
+
+        //if (nextTarget >= amountOfTargets)
+        //{
+        //    nextTarget = 0;
+        //}
+
+        //if (nextTarget < 0)
+        //{
+        //    nextTarget = amountOfTargets - 1;
+        //}
+
+        //currentTarget = possibleTargets[nextTarget].transform;
     }
 
     public void Untarget()
