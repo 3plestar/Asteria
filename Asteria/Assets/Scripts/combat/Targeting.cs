@@ -95,24 +95,19 @@ public class Targeting : MonoBehaviour
 
     public void cycleTarget(int direction)
     {
-        int amountOfTargets = possibleTargets.ToArray().Length;
-       
-        
-        if (amountOfTargets == 1 || !currentTarget)
+        if (!currentTarget)
         {
             return;
         }
 
-        //first get the current target
-        for (int i = 0; i < amountOfTargets; i++)
+        int amountOfTargets = possibleTargets.ToArray().Length;
+
+        if (amountOfTargets == 1)
         {
-            if (possibleTargets[i].transform == currentTarget)
-            {
-                nextTarget = i;
-            }
+            return;
         }
 
-        //then cycle to direction
+        //cycle to direction
         float nextTargetX = Mathf.Infinity;
         float possibleTargetX;
 
@@ -146,8 +141,16 @@ public class Targeting : MonoBehaviour
             currentTarget = possibleTargets[nextExtreme].transform;
         }
 
+        //first get the current target
+        //for (int i = 0; i < amountOfTargets; i++)
+        //{
+        //    if (possibleTargets[i].transform == currentTarget)
+        //    {
+        //        nextTarget = i;
+        //    }
+        //}
 
-
+        //then cycle to direction
         //nextTarget += direction;
 
         //if (nextTarget >= amountOfTargets)
