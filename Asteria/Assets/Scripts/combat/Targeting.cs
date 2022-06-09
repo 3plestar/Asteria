@@ -121,12 +121,13 @@ public class Targeting : MonoBehaviour
                 nextTarget = i;
             }
         }
+
         
         if(currentTarget != possibleTargets[nextTarget].transform)
         {
             currentTarget = possibleTargets[nextTarget].transform;
         }
-        else
+        else//als je niet van target veranderd, verander naar de extreme aan de andere kant
         {
             float extremeTargetX = Mathf.Infinity;
             for (int i = 0; i < amountOfTargets; i++)

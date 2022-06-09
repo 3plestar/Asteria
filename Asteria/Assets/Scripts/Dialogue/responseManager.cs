@@ -5,19 +5,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class responseManager : MonoBehaviour
+public class ResponseManager : MonoBehaviour
 {
     [SerializeField] private RectTransform OptionsContainer;
     [SerializeField] private RectTransform OptionButton;
 
-    private dialogueManager DialogueManager;
+    private DialogueManager dialogueManager;
     private OptionEvent[] optionEvent;
 
     private List<GameObject> tempButtons = new List<GameObject>();
 
     private void Start()
     {
-        DialogueManager = GetComponent<dialogueManager>();
+        dialogueManager = GetComponent<DialogueManager>();
     }
 
     public void addOptionEvents(OptionEvent[] optionEvent)
@@ -63,6 +63,6 @@ public class responseManager : MonoBehaviour
         optionEvent = null;
 
 
-        DialogueManager.ShowDialogue(option.DialogueData);
+        dialogueManager.ShowDialogue(option.DialogueData);
     }
 } 

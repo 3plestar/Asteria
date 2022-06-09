@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class NoButtonUnfocussing : MonoBehaviour
 {
+    //this is a temporary fix
     GameObject lastselect;
 
     void Update()

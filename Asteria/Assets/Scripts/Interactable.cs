@@ -1,4 +1,4 @@
 public interface Interactable
 {
-    public abstract void Interact(playerController player);
+    public abstract void Interact(PlayerController player);
 }

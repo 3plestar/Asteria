@@ -1,11 +1,12 @@
 using UnityEngine;
-using UnityEngine.Events;
+//using UnityEngine.Events;
+using UltEvents;
 
 [System.Serializable]
 public class OptionEvent
 {
     [HideInInspector] public string name;
-    [SerializeField] private UnityEvent onPickedOption;
+    [SerializeField] private UltEvent onPickedOption;
 
-    public UnityEvent OnPickedOption => onPickedOption;
+    public UltEvent OnPickedOption => onPickedOption;
 }

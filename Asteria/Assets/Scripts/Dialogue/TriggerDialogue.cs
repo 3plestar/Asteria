@@ -14,7 +14,7 @@ public class TriggerDialogue : MonoBehaviour, Interactable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out playerController player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerController player))
         {
             player.Interactable = this;
         }
@@ -22,7 +22,7 @@ public class TriggerDialogue : MonoBehaviour, Interactable
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out playerController player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out PlayerController player))
         {
             if (player.Interactable is TriggerDialogue triggerDialogue && triggerDialogue == this)
             {
@@ -31,13 +31,18 @@ public class TriggerDialogue : MonoBehaviour, Interactable
         }
     }
 
-    public void Interact(playerController player)
+    public void Interact(PlayerController player)
     {
-        if(TryGetComponent(out DialogueOptionEvents optionEvents) && optionEvents.dialogueData == DialogueData)
+        foreach (DialogueOptionEvents optionEvents in GetComponents<DialogueOptionEvents>())
         {
-            player.dialogueManager.AddOptionEvents(optionEvents.Events);
+            if(optionEvents.dialogueData == DialogueData)
+            {
+                player.DialogueManager.AddOptionEvents(optionEvents.Events);
+                break;
+            }
         }
+        
 
-        player.dialogueManager.ShowDialogue(DialogueData);
+        player.DialogueManager.ShowDialogue(DialogueData);
     }
 }

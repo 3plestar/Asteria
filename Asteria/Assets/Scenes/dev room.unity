@@ -422,7 +422,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &291820497
 GameObject:
@@ -722,24 +722,13 @@ MonoBehaviour:
   events:
   - name: Spawn enemy
     onPickedOption:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 378755428}
-          m_TargetAssemblyTypeName: Spawner, Assembly-CSharp
-          m_MethodName: SpawnObjects
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      _PersistentCalls:
+      - _Target: {fileID: 378755428}
+        _MethodName: SpawnObjects
+        _PersistentArguments: []
   - name: Leave
     onPickedOption:
-      m_PersistentCalls:
-        m_Calls: []
+      _PersistentCalls: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,20 +1248,7 @@ MonoBehaviour:
   events:
   - name: 
     onPickedOption:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 970530172}
-          m_TargetAssemblyTypeName: TriggerDialogue, Assembly-CSharp
-          m_MethodName: UpdateDialogueData
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 8c378c9ecaf334b4a9fe905f837f5e41, type: 2}
-            m_ObjectArgumentAssemblyTypeName: DialogueData, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      _PersistentCalls: []
 --- !u!114 &970530172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1584,24 +1560,21 @@ MonoBehaviour:
   events:
   - name: yes
     onPickedOption:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1062162840}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+      _PersistentCalls:
+      - _Target: {fileID: 1062162840}
+        _MethodName: SetActive
+        _PersistentArguments:
+        - _Type: 1
+          _Int: 0
+          _String: 
+          _X: 0
+          _Y: 0
+          _Z: 0
+          _W: 0
+          _Object: {fileID: 0}
   - name: no
     onPickedOption:
-      m_PersistentCalls:
-        m_Calls: []
+      _PersistentCalls: []
 --- !u!70 &1062162845
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2213,7 +2186,7 @@ MonoBehaviour:
   speed: 40000
   attackAnim: {fileID: 1065333165}
   weapon: {fileID: 1065333162}
-  DialogueManager: {fileID: 710362339}
+  dialogueManager: {fileID: 710362339}
 --- !u!70 &1642605668
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2312,6 +2285,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6292592037846143863, guid: e3c80a1f1ba4f4cd6bcdd265d929971b, type: 3}
   m_PrefabInstance: {fileID: 1115816191}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1907449552
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1907449553}
+  m_Layer: 0
+  m_Name: Inventory Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1907449553
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907449552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.96688, y: 36.818153, z: -155.51537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1966128462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6292592037846143863, guid: e3c80a1f1ba4f4cd6bcdd265d929971b, type: 3}

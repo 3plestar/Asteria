@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class meleeHitbox : MonoBehaviour
+public class MeleeHitbox : MonoBehaviour
 {
     public float strength = 2;
-    [SerializeField] private playerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     Targeting targeting;
@@ -15,10 +15,8 @@ public class playerController : MonoBehaviour
     public Animator attackAnim;
     public GameObject weapon;
 
-    [SerializeField] private dialogueManager DialogueManager;
-    
-
-    public dialogueManager dialogueManager => DialogueManager;
+    [SerializeField] private DialogueManager dialogueManager;
+    public DialogueManager DialogueManager => dialogueManager;
 
     public Interactable Interactable { get; set; }
     

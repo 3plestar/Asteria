@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class dialogueManager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
 
-    private responseManager ResponseManager;
+    private ResponseManager ResponseManager;
 
     public bool isShown { get; private set; }
     public bool isRunning { get; private set; }
@@ -25,7 +25,7 @@ public class dialogueManager : MonoBehaviour
 
     private void Start()
     {
-        ResponseManager = GetComponent<responseManager>();
+        ResponseManager = GetComponent<ResponseManager>();
         StartCoroutine(hideDialogueBox());
     }
 
