@@ -61,7 +61,7 @@ public class Targeting : MonoBehaviour
 
         float closestDistanceSqr = Mathf.Infinity;
 
-        foreach (GameObject potentialTarget in possibleTargets.ToArray())
+        foreach (GameObject potentialTarget in possibleTargets)
         {
             Vector3 directionToTarget = potentialTarget.transform.position - transform.position;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
