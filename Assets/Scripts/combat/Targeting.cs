@@ -9,7 +9,7 @@ public class Targeting : MonoBehaviour
 
     public Transform currentTarget;
     private int nextTarget;
-    private int nextExtreme;
+    private float angleBetween;
 
     [SerializeField] private List<GameObject> possibleTargets;
 
@@ -107,64 +107,77 @@ public class Targeting : MonoBehaviour
             return;
         }
 
-        //cycle to direction
-        float nextTargetX = Mathf.Infinity;
-        float possibleTargetX;
+        //cycle around player
+        float nextTargetAngle = 361;
+        
+        Vector3 currentTargetDirection = currentTarget.position-transform.position;
+        Vector3 possibleTargetDirection;
+        
 
         for (int i = 0; i < amountOfTargets; i++)
         {
-            possibleTargetX = possibleTargets[i].transform.position.x * direction;
-            if (possibleTargetX < nextTargetX && possibleTargetX > currentTarget.position.x * direction)
+            possibleTargetDirection = possibleTargets[i].transform.position - transform.position;
+            angleBetween = AngleClockwise(possibleTargetDirection.normalized, currentTargetDirection.normalized, transform.forward);
+            if (angleBetween < nextTargetAngle && angleBetween>0)
             {
-                nextTargetX = possibleTargetX;
+               nextTargetAngle = angleBetween;
 
-                nextTarget = i;
+               nextTarget = i;
             }
-        }
+        } 
+        currentTarget = possibleTargets[nextTarget].transform;
 
-        
-        if(currentTarget != possibleTargets[nextTarget].transform)
-        {
-            currentTarget = possibleTargets[nextTarget].transform;
-        }
-        else//als je niet van target veranderd, verander naar de extreme aan de andere kant
-        {
-            float extremeTargetX = Mathf.Infinity;
-            for (int i = 0; i < amountOfTargets; i++)
-            {
-                possibleTargetX = possibleTargets[i].transform.position.x * direction;
-                if (possibleTargetX < extremeTargetX)
-                {
-                    extremeTargetX = possibleTargetX;
-                    nextExtreme = i;
-                }
-            }
-            currentTarget = possibleTargets[nextExtreme].transform;
-        }
+        //float possibleTargetX;
 
-        //first get the current target
         //for (int i = 0; i < amountOfTargets; i++)
         //{
-        //    if (possibleTargets[i].transform == currentTarget)
+        //    possibleTargetX = possibleTargets[i].transform.position.x * direction;
+        //    if (possibleTargetX < nextTargetX && possibleTargetX > currentTarget.position.x * direction)
         //    {
+        //        nextTargetX = possibleTargetX;
+
         //        nextTarget = i;
         //    }
         //}
 
-        //then cycle to direction
-        //nextTarget += direction;
 
-        //if (nextTarget >= amountOfTargets)
+        //if(currentTarget != possibleTargets[nextTarget].transform)
         //{
-        //    nextTarget = 0;
+        //  currentTarget = possibleTargets[nextTarget].transform;
         //}
-
-        //if (nextTarget < 0)
+        //else//als je niet van target veranderd, verander naar de extreme aan de andere kant
         //{
-        //    nextTarget = amountOfTargets - 1;
+        //    float extremeTargetX = Mathf.Infinity;
+        //    for (int i = 0; i < amountOfTargets; i++)
+        //    {
+        //        possibleTargetX = possibleTargets[i].transform.position.x * direction;
+        //        if (possibleTargetX < extremeTargetX)
+        //        {
+        //            extremeTargetX = possibleTargetX;
+        //            nextExtreme = i;
+        //        }
+        //    }
+        //    currentTarget = possibleTargets[nextExtreme].transform;
         //}
+    }
 
-        //currentTarget = possibleTargets[nextTarget].transform;
+    public static float AngleClockwise(Vector3 vec1, Vector3 forward, Vector3 axis)
+    {
+        Vector3 right;
+
+        //clockwise
+        right = Vector3.Cross(forward, axis);
+        forward = Vector3.Cross(axis, right);
+
+        //anti-clockwise
+        //right = Vector3.Cross(axis, forward);
+        //forward = Vector3.Cross(right, axis);
+        float angle = Mathf.Atan2(Vector3.Dot(vec1, right), Vector3.Dot(vec1, forward)) * Mathf.Rad2Deg;
+        if (angle < 0)
+        {
+            angle += 360;
+        }
+        return angle;
     }
 
     public void Untarget()
