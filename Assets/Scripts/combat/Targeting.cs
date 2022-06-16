@@ -109,22 +109,29 @@ public class Targeting : MonoBehaviour
 
         //cycle around player
         float nextTargetAngle = 361;
-        
-        Vector3 currentTargetDirection = currentTarget.position-transform.position;
+
+        Vector3 centerBetweenTargets = Vector3.zero;
+        for (var i = 0; i < amountOfTargets; i++)
+        {
+            centerBetweenTargets += possibleTargets[i].transform.position;
+        }
+        centerBetweenTargets /= amountOfTargets;
+
+        Vector3 currentTargetDirection = currentTarget.position - centerBetweenTargets;
         Vector3 possibleTargetDirection;
         
 
         for (int i = 0; i < amountOfTargets; i++)
         {
-            possibleTargetDirection = possibleTargets[i].transform.position - transform.position;
-            angleBetween = AngleClockwise(possibleTargetDirection.normalized, currentTargetDirection.normalized, transform.forward);
+            possibleTargetDirection = possibleTargets[i].transform.position - centerBetweenTargets;
+            angleBetween = AngleClockwise(possibleTargetDirection.normalized, currentTargetDirection.normalized, Vector3.forward);
             if (angleBetween < nextTargetAngle && angleBetween>0)
             {
                nextTargetAngle = angleBetween;
 
                nextTarget = i;
             }
-        } 
+        }
         currentTarget = possibleTargets[nextTarget].transform;
 
         //float possibleTargetX;
@@ -159,6 +166,31 @@ public class Targeting : MonoBehaviour
         //    }
         //    currentTarget = possibleTargets[nextExtreme].transform;
         //}
+
+
+        ////first get the current target
+        //for (int i = 0; i < amountOfTargets; i++)
+        //{
+        //    if (possibleTargets[i].transform == currentTarget)
+        //    {
+        //        nextTarget = i;
+        //    }
+        //}
+
+        ////then cycle to direction
+        //nextTarget += direcion;
+
+        //if (nextTarget >= amountOfTargets)
+        //{
+        //    nextTarget = 0;
+        //}
+
+        //if (nextTarget < 0)
+        //{
+        //    nextTarget = amountOfTargets - 1;
+        //}
+
+        //currentTarget = possibleTargets[nextTarget].transform;
     }
 
     public static float AngleClockwise(Vector3 vec1, Vector3 forward, Vector3 axis)
